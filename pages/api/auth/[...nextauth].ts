@@ -6,7 +6,7 @@ import Stripe from "stripe"
 
 const prisma = new PrismaClient()
 
-export default NextAuth({
+export const authOptions = {
     providers: [
       GoogleProviders({
         clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -35,4 +35,6 @@ export default NextAuth({
         }
       }
     }
-})
+}
+
+export default NextAuth(authOptions)
